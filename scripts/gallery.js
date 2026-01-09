@@ -49,3 +49,17 @@ $(".gallery img").hover(function (e) {
     });  
 }
 );
+
+$(".vid-gallery iframe").hover(function (e) {
+    $(e.target).animate({
+        borderRadius: '20px',
+    });        // over
+
+}, function (e) {
+    // out
+        $(e.target).animate({
+        borderRadius: '0px',
+    });  
+}
+);
+

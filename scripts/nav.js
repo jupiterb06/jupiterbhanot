@@ -1,35 +1,52 @@
 $("#nav-expand").click(function (e) {
+    $("#logo-div-1").toggleClass("hidden");
+    $("#logo-div-2").toggleClass("hidden");
+
+
+
+    $("header nav").toggleClass("stick-to-top");
+
     $("#global-nav").slideToggle();
 
+    $("#nav-expand").toggleClass("current-page");
+
 });
 
-onLoad();
+const mediaQuery = window.matchMedia("(max-width: 760px)");
 
-function resizeLogic() {
-
-
-    if ($(window).width() > 760) {
+function handleDeviceChange(e) {
+    if (e.matches) {
+        $("#global-nav").css("display", "none");
+    } else {
         $("#global-nav").css("display", "flex");
-    }
+        $("header nav").removeClass("stick-to-top");
+        $("#logo-div-2").addClass("hidden");
 
+
+    }
 }
 
-$(window).resize(function () {
-    resizeLogic();
-    if ($(window).width() <= 760) {
-        $("#global-nav").css("display", "none");
-    }
-});
+handleDeviceChange(mediaQuery);
+mediaQuery.addEventListener("change", handleDeviceChange);
 
-resizeLogic();
+
+let currentSection = "#painting-drawing";
+
 
 $("#jump-to-section li a").click(function (e) {
     e.preventDefault();
-    console.log("clicked" + e.target.dataset.section);
+    $(currentSection + "-btn").removeClass("current-page");
+
+
     $("#work-content section").fadeOut();
+    $(currentSection).addClass("hidden");
+
+    $(e.target.dataset.section).removeClass("hidden");
 
     $(e.target.dataset.section).fadeIn();
-    $(e.target.dataset.section).removeClass("hidden");
+    currentSection = e.target.dataset.section;
+    $(currentSection + "-btn").addClass("current-page");
+
 
 
 

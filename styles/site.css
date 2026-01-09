@@ -11,7 +11,11 @@
 html {
     font-family: 'Didot', 'Times New Roman', Times, serif;
     scroll-behavior: smooth;
-    animation: fadeIn 0.5s ease-in forwards
+    animation: fadeIn 0.5s ease-in forwards;
+    margin: 0;
+
+    overflow-x: hidden;
+
 }
 
 body {
@@ -23,7 +27,14 @@ header {
     flex-direction: row;
     justify-content: space-between;
     padding: 10px 20px;
+    background-color: white;
 
+
+
+}
+
+header nav {
+    background-color: white;
 }
 
 nav menu {
@@ -36,6 +47,7 @@ nav menu {
 }
 
 #logo-div p {
+    margin-block: 0;
     text-align: right;
     font-style: italic;
 
@@ -52,17 +64,20 @@ nav menu {
 }
 
 
-nav menu li {
+nav menu li,
+nav ul li {
     list-style-type: none;
-    margin-left: 8px;
-    margin-right: 8px;
+
 }
 
-nav menu li a {
+nav menu li a,
+nav ul li a {
     border-radius: 50px;
     border: 2px solid blue;
     background-color: white;
     padding: 10px 20px;
+    margin-left: 8px;
+    margin-right: 8px;
     text-decoration: none;
     font-size: 1.15rem;
 
@@ -70,11 +85,13 @@ nav menu li a {
 
 }
 
-nav menu li a:visited {
+nav menu li a:visited,
+nav ul li a:visited {
     color: blue;
 }
 
-nav menu li a:hover {
+nav menu li a:hover,
+nav ul li a:visited {
     background-color: blue;
     color: white;
     font-style: italic;
@@ -83,92 +100,11 @@ nav menu li a:hover {
 
 }
 
+
 #nav-expand {
     display: none;
 }
 
-@media (max-width:760px) {
-
-
-
-    header {
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 0;
-    }
-
-    nav menu {
-
-        display: none;
-
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-        padding: 0;
-
-    }
-
-    nav menu li {
-        width: 100%;
-        margin: 0;
-    }
-
-    nav menu li a {
-        display: block;
-        border-radius: 0px;
-        border: none;
-        width: 100%;
-        padding: 10px 0;
-        text-align: center;
-        font-size: 1.5rem;
-    }
-
-
-
-    #logo-div {
-        width: 100%;
-    }
-
-    #logo {
-        margin: 0 auto;
-        width: 60%;
-        max-width: 330px;
-    }
-
-    #logo-div p {
-        display: none;
-    }
-
-    #nav-expand {
-        display: block;
-        width: 5%;
-        border-radius: 100px;
-        border: 2px solid blue;
-        background-color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 1.15rem;
-        position: fixed;
-        bottom: 5px;
-        right: 5px;
-        z-index: 20;
-    }
-
-    #nav-expand img {
-        width: 100%;
-    }
-
-    #nav-expand:hover {
-        background-color: blue;
-        color: white;
-    }
-
-    #jump-to-buttons {
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
-
-}
 
 .current-page {
     background-color: blue;
@@ -185,7 +121,11 @@ main {
 
 h2 {
     font-family: serif;
-    font-size: 4rem;
+    font-size: 4.5rem;
+
+    margin-block-start: 0;
+    margin-top: 15px;
+
     color: blue;
     font-style: italic;
 }
@@ -384,7 +324,6 @@ footer p {
 
 }
 
-#jump-to-buttons {}
 
 
 .gallery {
@@ -393,7 +332,15 @@ footer p {
     flex-wrap: wrap;
     /* justify-content: space-between; */
     gap: 5px 5px;
+    max-width: 100%;
     margin: auto 60px;
+
+}
+
+#work-content h2{
+    /* margin-block-end: 0; */
+    margin: 30px 60px;
+    text-align: right;
 
 }
 
@@ -409,10 +356,48 @@ footer p {
 
 }
 
+.vid-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    max-width: 100%;
+    margin: auto 60px;
+    align-items: flex-start;
+
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.vid-text {
+    margin-left: 30px;
+    flex-grow:1;
+
+
+}
+
+.vid-text h2 {
+    margin-top: 0 !important;
+    margin-block-end: 0;
+    margin-right: 0 !important;
+
+
+}
+
+.vid-gallery iframe {
+    aspect-ratio: 560/315;
+    max-width: 40%;
+    flex-grow: 1;
+}
+
 #illustration,
 #graphic-design,
 #video,
-#interactive {
+#art-tech {
     display: none;
 }
 
@@ -422,4 +407,154 @@ footer p {
 
 .stop-scroll {
     overflow: hidden;
+}
+
+.stick-to-top {
+    position: fixed;
+    top: 0;
+    z-index: 200;
+
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+
+    width: 100%;
+
+
+}
+
+@media (max-width: 970px) {
+    #jump-to-section {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding-inline-start: 0;
+
+
+    }
+
+
+    #jump-to-section li a {
+        display: block;
+        width: 90%;
+        margin: 15px auto;
+        text-align: center;
+
+    }
+}
+
+@media (max-width:760px) {
+
+
+
+    header {
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+
+
+    }
+
+    #global-nav {
+
+        display: none;
+
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0;
+
+
+
+    }
+
+    #global-nav li {
+        width: 100%;
+        margin: 0;
+    }
+
+    #global-nav li a {
+        display: block;
+        border-radius: 0px;
+        border: none;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+
+
+    #logo-div {
+        width: 100%;
+
+        transition: all 0.2s ease-in-out;
+
+    }
+
+    #logo {
+        margin: 0 auto;
+        width: 60%;
+        max-width: 330px;
+    }
+
+    #logo-div p {
+        display: none;
+    }
+
+    #nav-expand {
+        display: block;
+        width: 60px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        border: 2px solid blue;
+        background-color: white;
+        color: blue;
+
+        text-decoration: none;
+        font-size: 2rem;
+
+        padding: 0;
+
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 20;
+    }
+
+    #nav-expand img {
+        width: 100%;
+    }
+
+    main {
+        width: 90%;
+        margin: auto;
+    }
+
+    #nav-expand:hover {
+        background-color: blue;
+        color: white;
+    }
+
+    h3 {
+        margin-left: 0;
+    }
+
+    .gallery, .vid-gallery {
+        width: 100%;
+        margin: auto 0;
+    }
+
+    .gallery-item{
+        flex-direction: column;
+    }
+
+    .vid-gallery iframe{
+        max-width: 100%;
+    }
+    .vid-text{
+        margin-left: 0;
+    }
+
 }
