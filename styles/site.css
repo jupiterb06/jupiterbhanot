@@ -475,6 +475,18 @@ footer p {
     flex-grow: 1;
 }
 
+.about-me {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-me img {
+    max-width: 40%;
+    max-height: 60vh;
+    order: 2;
+}
+
+
 #illustration,
 #graphic-design,
 #video,
@@ -523,7 +535,7 @@ footer p {
 
     }
 
-    
+
 }
 
 @media (max-width:760px) {
@@ -535,7 +547,7 @@ footer p {
         justify-content: space-between;
         padding: 0;
 
-        margin-top:10px;
+        margin-top: 10px;
 
     }
 
@@ -691,14 +703,14 @@ footer p {
         width: 90%;
         height: 100%;
         padding: 10px;
-        overflow:scroll;
+        overflow: scroll;
     }
 
     .modal-content {
         flex-direction: column;
     }
 
-    #modal-text{
+    #modal-text {
         flex-grow: 1;
 
     }
@@ -723,6 +735,14 @@ footer p {
         margin-bottom: 15px;
     }
 
+    .about-me {
+        flex-direction: column;
+    }
+
+    .about-me img {
+        max-width: 100%;
+        order: 0;
+    }
 
 
 }
