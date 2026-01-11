@@ -4,7 +4,7 @@ $("#nav-expand").click(function (e) {
 
 
     $("header nav").toggleClass("stick-to-top");
-
+    
     $("#logo-div-2").toggle();
     $("#global-nav").slideToggle();
 

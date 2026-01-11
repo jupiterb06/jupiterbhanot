@@ -19,11 +19,6 @@ $(".gallery img").click(function (e) {
 
     $("body").addClass("stop-scroll");
 
-
-
-
-
-
     $("#modal-img").attr("src", e.target.src);
     $("#modal-img").attr("alt", e.target.alt);
 
@@ -32,6 +27,10 @@ $(".gallery img").click(function (e) {
     $("#size").text(e.target.dataset.size);
     $("#medium").text(e.target.dataset.medium);
     $("#desc").text(e.target.dataset.desc);
+
+    $("#modal").scrollTop(0);
+
+    
 
 });
 
