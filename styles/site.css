@@ -691,7 +691,7 @@ footer p {
         flex-direction: column;
     }
 
-    .vid-gallery iframe {
+    .vid-gallery iframe, .art-tech-gallery iframe, .art-tech-gallery img {
         max-width: 100%;
     }
 
