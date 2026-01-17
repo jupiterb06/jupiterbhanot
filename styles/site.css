@@ -744,5 +744,9 @@ footer p {
         order: 0;
     }
 
+    .btn{
+        max-width: 100;
+    }
+
 
 }
